@@ -1,6 +1,7 @@
 body {
   font-family: 'Zen Maru Gothic', serif;
-}h1 {
+}
+h1 {
   color: white;
   background: maroon;
 }
@@ -21,4 +22,40 @@ section.git_config {
 }
 section.git_config p {
   width: 550px;
+}
+div.prog-lang {
+  width: 220px;
+  min-width: 220px;
+  height: 90px;
+  min-height: 90px;
+  border-color: #ccc;
+  border-style: inset;
+/*  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 4px; */
+}
+.container {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+div.disp-flex {
+  display-inside: flow;
+}
+.lang-btn {
+  color: white;
+  background: white;
+  outline-
+  width: 218px;
+  min-width: 218px;
+  height:88px;
+}
+.lang-btn:hover {
+  cursor: pointer;
+  border-color: yellow;
+}
+.lang-logo {
+  vertical-align: middle;
 }
