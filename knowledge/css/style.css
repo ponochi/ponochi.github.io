@@ -1,0 +1,24 @@
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}h1 {
+  color: white;
+  background: maroon;
+}
+blockquote {
+  color: black;
+  background: wheat;
+}
+ul.width_150px {
+  color: black;
+  background: lavender;
+  width: 150px;
+}
+section.git_config {
+  width: 600px;
+  color: white;
+  background: black;
+  overflow-x: scroll;
+}
+section.git_config p {
+  width: 550px;
+}

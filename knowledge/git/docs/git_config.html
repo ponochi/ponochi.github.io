@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="ponochi">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./../../imgs/icon.svg">
+  <link rel="canonical" href="https://ponochi.gothib.io/knowledge/git/docs/git_config.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./../../css/style.css">
+</head>
+<body>
+  <h1>"ぽのち"のナレッジ - 【git config】</h1>
+  <hr>
+  クライアントPCに git cli をインストールして、git を使い始めるときや、開発プロジェクトなどで個別に設定をチューニングする必要がある場合などに、git configコマンドで設定をする必要が出てきます。<br>
+  <br>
+  <a target="_self" href="https://git-scm.com/docs/git-config">git-config - Get and set repository or global options</a>
+  <br>
+  <blockquote cite="https://git-scm.com/docs/git-config">
+    <p>When writing, the new value is written to the repository local configuration file by default, and options --system, --global, --worktree, --file <filename> can be used to tell the command to write to that location (you can say --local but that is the default).</p>
+  </blockquote>
+  <br>
+  上はgitのドキュメントからの引用ですが、git config のオプションとして、以下のものが使えることがわかります。
+  <ul class="width_150px">
+    <li>--system</li>
+    <li>--global</li>
+    <li>--worktree</li>
+    <li>--file</li>
+  </ul>
+  それから、上記の４つに加えて、デフォルト値として <mark><strong>--local</strong></mark> があります。<br>
+  上から下に向けて、gitのシステム全体⇛より狭い範囲に対して、設定項目を適用できます。<br>
+  個人プロジェクトなどでは、--global で、複数プロジェクトを跨いで設定項目を適用させるか、デフォルトの --local で、リポジトリ単位に対して個別に設定していくことが殆どでしょう。<br>
+  <br>
+  次に、実際に最初に設定する例を挙げます。(とりあえず、最低限これだけ設定しておけば、あまり困ることはない)<br>
+  ここでは、複数リポジトリを作成した際に、すべてに設定が適用されるよう --globalオプション を使って設定するものとします。<br>
+  <br>
+
+  <code>
+    <section class="git_config">
+      <p>
+        &nbsp;$ git config --global user.name "&lt;name&gt;"<br>
+        &nbsp;$ git config --global user.email "&lt;user@example.com&gt;"<br>
+        &nbsp;$ git config --global core.editor "&lt;editor&gt;"<br>
+        &nbsp;$ git config --global color.ui "&lt;scheme&gt;"<br>
+        &nbsp;$ git config --global init.defaultBranch "&lt;branch name&gt;"<br>
+      </p>
+    </section>
+  </code>
+
+  <br>
+  <strong>user.name</strong> に関しては、名と姓(英語表記なので逆)のあいだにスペースが入るため、名と姓をひと括りの値として認識できるよう、ダブルクオートで囲う必要があります。(例 "Yoshihiro Nakahara"<br>
+  <strong>core.editor</strong> については、Linuxでいえば vi, vim, nvim, nano, emacsなど普段お使いのものを設定しておけば、コミットメモを書く際に指定しておいたエディタが立ち上がります。<br>
+  次に <strong>color.ui</strong> は表示色の設定ですが、一般的には auto をスキームとして設定しておくと、gitがいい具合に色分けしてくれます。が、auto の色分けが気に食わん！という方は、スキームを指定する必要があります。(ここでは個別の設定は取り上げないので、ドキュメント等で調べて設定してください。)<br>
+  最後の <strong>init.defaultBranch</strong> に関しては、過去にはデフォルトのブランチ名は master だったのですが、 master(主人) / slave(奴隷) を連想させるということで、デフォルトのブランチ名が main になるような変更が入りました。この項目を設定しておかないと、コミットしようとした際に警告が出るので、最初に設定しておきましょう。また、大規模プロジェクトなどで main 以外のデフォルトブランチ名が指定されている場合は、--global ではなく、--local (デフォルトなので、実際のオプションとして --local は指定しない) で設定しておけば大丈夫でしょう。<br>
+  <br>
+  <hr>
+  <footer>Copyright © since 2023.12.24 Ponochi All rights reserved.</footer>
+</body>
+</html>
